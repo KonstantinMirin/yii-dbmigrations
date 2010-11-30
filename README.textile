@@ -160,13 +160,18 @@ In the migration class, you have the following functionality available:
 * removeColumn: remove a column from a table
 * addIndex: add an index to the database or table
 * removeIndex: remove an index from the database or table
+* addConstraint: add constraint to some table (will work only for MySQL and only for InnoDB type)
+* removeConstraint: remove contraint added with above method
 
 When specifying fields, we also support a type mapping so that you can use generic type definitions instead of database specific type definitions. The following types are supported:
 
-* primary_key
+* primaryKey
+* bigPrimaryKey
 * string
 * text
 * integer
+* long
+* bigint
 * float
 * decimal
 * datetime
@@ -323,9 +328,12 @@ The yii-dbmigrations package supports the following data types:
 
 |*type*|*MySQL*|*SQLite*|
 |primary_key|<code>int(11) DEFAULT NULL auto_increment PRIMARY KEY</code>|<code>INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL</code>|
+|big_primary_key|<code>bigint(20) DEFAULT NULL auto_increment PRIMARY KEY</code>|<code>---</code>|
 |string|<code>varchar(255)</code>|<code>varchar(255)</code>|
 |text|<code>text</code>|<code>text</code>|
 |integer|<code>int(4)</code>|<code>integer</code>|
+|long|<code>int(11)</code>|<code>---</code>|
+|bigint|<code>bigint(20)</code>|<code>---</code>|
 |float|<code>float</code>|<code>float</code>|
 |decimal|<code>decimal</code>|<code>decimal</code>|
 |datetime|<code>datetime</code>|<code>datetime</code>|
