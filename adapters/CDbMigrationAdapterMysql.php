@@ -21,9 +21,11 @@ class CDbMigrationAdapterMysql extends CDbMigrationAdapter {
      */
     protected $nativeDatabaseTypes = array(
         'primary_key' => 'int(11) DEFAULT NULL auto_increment PRIMARY KEY',
+        'big_primary_key' => 'bigint(20) DEFAULT NULL auto_increment PRIMARY KEY',
         'string' => 'varchar(255)',
         'text' => 'text',
         'integer' => 'int(4)',
+        'long' => 'int(11)',
         'bigint' => 'bigint(20)',
         'float' => 'float',
         'decimal' => 'decimal',

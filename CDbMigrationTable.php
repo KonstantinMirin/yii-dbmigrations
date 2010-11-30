@@ -52,9 +52,30 @@ class CDbMigrationTable {
      *
      *  @param $name    The name of the primary key column.
      *  @param $options The extra options to pass to the column.
+	 *  @deprecated
      */
     public function primary_key($name='id', $options=null) {
+        $this->primaryKey($name, $options);
+    }
+
+    /**
+     *  Add a primary key to the table. Alias for the $this->primary_key
+     *
+     *  @param $name    The name of the primary key column.
+     *  @param $options The extra options to pass to the column.
+     */
+    public function primaryKey($name='id', $options=null) {
         $this->addField($name, 'primary_key', $options);
+    }
+
+    /**
+     *  Add a big primary key to the table (bigint).
+     *
+     *  @param $name    The name of the primary key column.
+     *  @param $options The extra options to pass to the column.
+     */
+    public function bigPrimaryKey($name='id', $options=null) {
+        $this->addField($name, 'big_primary_key', $options);
     }
     
     /**
@@ -102,6 +123,16 @@ class CDbMigrationTable {
      */
     public function integer($name, $options=null) {
         $this->addField($name, 'integer', $options);
+    }
+
+    /**
+     *  Add an long integer field to the table.
+     *
+     *  @param $name    The name of the primary key column.
+     *  @param $options The extra options to pass to the column.
+     */
+    public function long($name, $options=null) {
+        $this->addField($name, 'long', $options);
     }
     
     /**
